@@ -1,3 +1,0 @@
-hero.mp4 = landing page hero video (community/environment footage)
-tree-planting.mp4 = Gallery video (a person planting a tree)
-Keep each under ~15MB (compress with HandBrake) for fast loading.
