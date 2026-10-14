@@ -1,0 +1,48 @@
+/* Footer fixes for desktop layout — makes footer match the provided design */
+.ftr {
+  background: linear-gradient(180deg, rgba(8,34,21,1) 0%, rgba(6,24,16,1) 100%);
+  color: #eaf6ef;
+  padding: 56px 0 22px;
+}
+
+.ftr .wrap.fgrid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 40px 48px;
+  align-items: start;
+}
+
+.ftr .flogo { 
+  width: 120px;
+  height: auto;
+  background: rgba(255,255,255,0.06);
+  padding: 10px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.ftr p, .ftr a, .ftr li { color: rgba(234,246,239,0.95); }
+.ftr h4 { color: #eaf6ef; font-weight:700; margin-bottom:12px; }
+.ftr a { display: block; margin:8px 0; color: rgba(234,246,239,0.85); }
+
+.ftr .wrap.fgrid > div { min-height: 1px; }
+
+/* lower row with copyright and powered-by */
+.copy, .powered-by {
+  text-align: center;
+  color: rgba(234,246,239,0.82);
+  margin: 18px 0 10px;
+  font-size: 0.95rem;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  padding-top: 18px;
+}
+
+.powered-by a { color: rgba(191,234,208,0.95); font-weight:600; }
+
+/* Responsive adjustments — keep mobile layout as-is */
+@media (max-width: 980px) {
+  .ftr { padding: 36px 0 14px; }
+  .ftr .wrap.fgrid { grid-template-columns: 1fr; gap: 18px; }
+  .ftr .flogo { width: 96px; }
+  .copy, .powered-by { text-align: center; padding-top: 12px; }
+}
