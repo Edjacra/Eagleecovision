@@ -1670,3 +1670,27 @@ h2:empty {
   text-transform: uppercase;
   box-shadow: 0 4px 14px rgba(217, 119, 6, 0.4);
 }
+/* Developer credit */
+.ftr .dev-credit{
+  text-align: center;
+  font-size: 0.8rem;          /* small but readable */
+  line-height: 1.5;
+  margin: 6px 0 0;
+  padding: 0 16px 22px;       /* breathing room above the footer edge */
+  color: rgba(255,255,255,0.62);
+  letter-spacing: 0.02em;
+}
+
+.ftr .dev-credit a{
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.35);
+  transition: color .2s ease, border-color .2s ease;
+}
+
+.ftr .dev-credit a:hover,
+.ftr .dev-credit a:focus-visible{
+  color: var(--t);            /* your terracotta accent */
+  border-bottom-color: var(--t);
+}
