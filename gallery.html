@@ -10,136 +10,78 @@
 <nav class="nav"><a href="index.html">Home</a><a href="about.html">About Us</a><a href="programs.html">Programs</a><a href="impact.html">Impact</a><a href="get-involved.html">Get Involved</a><a href="gallery.html" class="active">Gallery</a><a href="contact.html">Contact</a></nav></header>
 <main>
 <section class="phero"><h1>Gallery & Media</h1><p>Visual highlights of our field programs, community barazas, and grassroots empowerment</p></section>
-<section class="sec"><div class="wrap"><h2>Photos</h2><p class="sub">Browse photos by event. Open an album to see every photo, or click any photo to view it in high resolution.</p>
+<section class="sec"><div class="wrap"><h2>Featured Photos</h2>
+<p class="sub">Selected photos to highlight our recent field work. Tap "More Photos" to open the full shared album.</p>
 
 <style>
+  /* Larger image cards, cleaner spacing, darker modal */
   .featured-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 18px;
-    margin: 26px 0 18px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+    margin: 32px 0 20px;
+    align-items: start;
   }
   .featured-gallery figure {
     margin: 0;
-    border-radius: 16px;
-    overflow: hidden;
-    background: #f7f7f7;
-    box-shadow: 0 8px 24px rgba(8, 62, 35, 0.09);
-  }
-  .featured-gallery img {
-    width: 100%;
-    height: 260px;
-    object-fit: cover;
-    display: block;
-  }
-  .featured-gallery figcaption {
-    padding: 12px 14px;
-    font-weight: 600;
-    color: #0f3d2c;
-    background: rgba(255,255,255,0.9);
-  }
-  .more-photos-wrap {
-    margin-top: 8px;
-    display: flex;
-    justify-content: center;
-  }
-  .more-photos-btn {
-    border: none;
-    background: var(--g);
-    color: #fff;
-    font: inherit;
-    font-weight: 700;
-    border-radius: 999px;
-    padding: 14px 28px;
-    cursor: pointer;
-    box-shadow: 0 10px 20px rgba(8, 62, 35, 0.18);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  .more-photos-btn:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 12px 24px rgba(8, 62, 35, 0.2);
-  }
-  .more-photos-modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.72);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 2000;
-    padding: 24px;
-  }
-  .more-photos-modal.open {
-    display: flex;
-  }
-  .more-photos-dialog {
-    width: min(1100px, 100%);
-    height: min(82vh, 820px);
-    background: #fff;
     border-radius: 14px;
     overflow: hidden;
-    position: relative;
-    box-shadow: 0 25px 60px rgba(0,0,0,0.28);
+    background: #0b1b15; /* dark card background */
+    color: #fff;
+    box-shadow: 0 18px 40px rgba(3,12,8,0.45);
+    transform: translateY(0);
+    transition: transform .18s ease, box-shadow .18s ease;
   }
-  .more-photos-close {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    border: none;
-    background: rgba(255,255,255,0.9);
-    font-size: 28px;
-    line-height: 1;
-    cursor: pointer;
-    z-index: 10;
-  }
-  .more-photos-frame-wrap {
+  .featured-gallery figure:hover { transform: translateY(-6px); box-shadow: 0 26px 60px rgba(3,12,8,0.5); }
+  .featured-gallery img {
     width: 100%;
-    height: 100%;
-    background: #000;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+    -webkit-user-drag: none;
   }
-  .more-photos-frame-wrap iframe {
-    width: 100%;
-    height: 100%;
-    border: 0;
-    background: #000;
+  .featured-gallery figcaption {
+    padding: 16px 18px;
+    font-weight: 700;
+    color: #eaf6ef;
+    background: linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.35));
   }
-  .more-photos-fallback {
-    width: 100%;
-    height: 100%;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 28px;
-    background: #f7f7f7;
-    color: #1d3127;
-    font-weight: 600;
+  @media (max-width: 980px) {
+    .featured-gallery { grid-template-columns: repeat(2, 1fr); }
+    .featured-gallery img { height: 260px; }
   }
-  .more-photos-fallback a {
-    color: var(--g);
-    text-decoration: underline;
+  @media (max-width: 620px) {
+    .featured-gallery { grid-template-columns: 1fr; }
+    .featured-gallery img { height: 220px; }
   }
-  @media (max-width: 640px) {
-    .featured-gallery img { height: 200px; }
-    .more-photos-dialog { height: 70vh; }
-  }
+
+  .more-photos-wrap { margin-top: 20px; display:flex; justify-content:center; }
+  .more-photos-btn { border: none; background: #0f3d2c; color: #fff; font: inherit; font-weight: 800; border-radius: 999px; padding: 14px 28px; cursor: pointer; box-shadow: 0 12px 28px rgba(3,12,8,0.36); }
+  .more-photos-btn:hover { transform: translateY(-2px); }
+
+  /* Dark modal look */
+  .more-photos-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.82); display: none; align-items: center; justify-content: center; z-index: 3000; padding: 18px; }
+  .more-photos-modal.open { display:flex; }
+  .more-photos-dialog { width: min(1200px, 100%); height: min(88vh, 920px); background: #07140f; border-radius: 12px; overflow: hidden; position: relative; box-shadow: 0 40px 90px rgba(0,0,0,0.75); }
+  .more-photos-close { position: absolute; top: 12px; right: 12px; width:44px; height:44px; border-radius:50%; border:none; background: rgba(255,255,255,0.06); color:#fff; font-size:26px; cursor:pointer; z-index:12; }
+  .more-photos-frame-wrap { width:100%; height:100%; display:flex; align-items:center; justify-content:center; }
+  .more-photos-frame-wrap iframe { width:100%; height:100%; border:0; background:#07140f; }
+  .more-photos-fallback { width:100%; height:100%; display:none; align-items:center; justify-content:center; text-align:center; padding:28px; color:#dff3e6; }
+  .more-photos-fallback a { color:#a8f0bf; text-decoration:underline; font-weight:700; }
 </style>
 
 <div class="featured-gallery">
   <figure>
-    <img src="assets/images/gallery/196a16e6-8752-4f11-b518-c07f437842b9-copied-media~2.jpg" alt="Featured Eagle Ecovision community project photo 1" loading="lazy">
-    <figcaption>Field community program</figcaption>
+    <img src="assets/images/gallery/196a16e6-8752-4f11-b518-c07f437842b9-copied-media~2.jpg" alt="Featured photo 1" loading="lazy">
+    <figcaption>Community program</figcaption>
   </figure>
   <figure>
-    <img src="assets/images/gallery/32829da5-a906-4392-a05f-cf3eeb56bd6e-copied-media~2.jpg" alt="Featured Eagle Ecovision community project photo 2" loading="lazy">
-    <figcaption>Local outreach and engagement</figcaption>
+    <img src="assets/images/gallery/32829da5-a906-4392-a05f-cf3eeb56bd6e-copied-media~2.jpg" alt="Featured photo 2" loading="lazy">
+    <figcaption>Local outreach</figcaption>
   </figure>
   <figure>
-    <img src="assets/images/gallery/cd4223de-11c2-4ded-abbe-752959bbc58f-copied-media~2.jpg" alt="Featured Eagle Ecovision community project photo 3" loading="lazy">
-    <figcaption>Community-led sustainability action</figcaption>
+    <img src="assets/images/gallery/cd4223de-11c2-4ded-abbe-752959bbc58f-copied-media~2.jpg" alt="Featured photo 3" loading="lazy">
+    <figcaption>Sustainability action</figcaption>
   </figure>
 </div>
 
@@ -147,16 +89,17 @@
   <button class="more-photos-btn" type="button" id="openMorePhotos">More Photos</button>
 </div>
 
+<!-- Dark full-screen modal that tries an iframe first, then falls back to same-tab navigation if embedding is blocked -->
 <div class="more-photos-modal" id="morePhotosModal" aria-hidden="true">
   <div class="more-photos-dialog" role="dialog" aria-modal="true" aria-label="More photos gallery">
     <button class="more-photos-close" type="button" aria-label="Close gallery" id="closeMorePhotos">&times;</button>
     <div class="more-photos-frame-wrap" id="frameWrap">
-      <iframe id="morePhotosFrame" src="https://photos.app.goo.gl/vndp8pChQaWnmHmc8" title="More Photos Album" loading="lazy" allow="fullscreen"></iframe>
+      <iframe id="morePhotosFrame" src="about:blank" title="More Photos Album" loading="lazy" allowfullscreen></iframe>
     </div>
     <div class="more-photos-fallback" id="morePhotosFallback">
       <div>
-        <p>This album can't be embedded in the page.</p>
-        <p><a href="https://photos.app.goo.gl/vndp8pChQaWnmHmc8" target="_self">Open the album on this page</a></p>
+        <p>Embedding isn't allowed by the provider. We'll open the album for you on this page.</p>
+        <p><a href="#" id="fallbackOpen">Open album</a></p>
       </div>
     </div>
   </div>
@@ -167,100 +110,72 @@
     const modal = document.getElementById('morePhotosModal');
     const openBtn = document.getElementById('openMorePhotos');
     const closeBtn = document.getElementById('closeMorePhotos');
+    const frame = document.getElementById('morePhotosFrame');
     const frameWrap = document.getElementById('frameWrap');
     const fallback = document.getElementById('morePhotosFallback');
+
+    // Use the album URL provided
     const albumUrl = 'https://photos.app.goo.gl/vndp8pChQaWnmHmc8';
 
     function openGallery() {
       modal.classList.add('open');
       modal.setAttribute('aria-hidden', 'false');
-      frameWrap.style.display = 'block';
       fallback.style.display = 'none';
-      const frame = document.getElementById('morePhotosFrame');
-      if (!frame.src || frame.src !== albumUrl) {
+      frameWrap.style.display = 'flex';
+
+      // Try to load the album in an iframe first
+      try {
         frame.src = albumUrl;
+      } catch (e) {
+        // If setting src immediately throws, fallback to navigation
+        navigateToAlbum();
+        return;
       }
 
-      setTimeout(function () {
+      // After a short wait check whether embedding succeeded — if not, navigate same-tab
+      const timeout = setTimeout(function () {
+        let blocked = false;
         try {
+          // Accessing contentDocument will throw if embedding is blocked
           const doc = frame.contentDocument;
-          if (!doc || !doc.body) {
-            throw new Error('Blocked');
-          }
+          if (!doc || !doc.body || doc.body.innerHTML.length === 0) blocked = true;
         } catch (err) {
+          blocked = true;
+        }
+        if (blocked) {
+          // Show a friendly fallback and then open the album on the same tab when the user confirms
           frameWrap.style.display = 'none';
           fallback.style.display = 'flex';
+          const fallbackOpen = document.getElementById('fallbackOpen');
+          fallbackOpen.addEventListener('click', function (ev) {
+            ev.preventDefault();
+            navigateToAlbum();
+          }, { once: true });
         }
       }, 900);
+    }
+
+    function navigateToAlbum() {
+      // navigate in the same tab so the user stays in the same browsing context (not a new tab)
+      window.location.href = albumUrl;
     }
 
     function closeGallery() {
       modal.classList.remove('open');
       modal.setAttribute('aria-hidden', 'true');
-      const frame = document.getElementById('morePhotosFrame');
       frame.src = 'about:blank';
-      frameWrap.style.display = 'block';
+      frameWrap.style.display = 'flex';
       fallback.style.display = 'none';
     }
 
     openBtn.addEventListener('click', openGallery);
     closeBtn.addEventListener('click', closeGallery);
-    modal.addEventListener('click', function (event) {
-      if (event.target === modal) closeGallery();
-    });
-    document.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape' && modal.classList.contains('open')) {
-        closeGallery();
-      }
-    });
+    modal.addEventListener('click', function (event) { if (event.target === modal) closeGallery(); });
+    document.addEventListener('keydown', function (event) { if (event.key === 'Escape' && modal.classList.contains('open')) closeGallery(); });
   })();
 </script>
 
-<div class="album-grid">
-<article class="album-card">
-<h3>Tree Planting Day 2026</h3>
-<figure class="album-cover"><img src="assets/images/gallery/Tree%20planting%20day%202026/Tree%20Planting.png" alt="Tree planting activity in 2026" loading="lazy"><figcaption>Tree Planting Day 2026</figcaption></figure>
-<div class="album-photos" hidden>
-<figure><img src="assets/images/gallery/Tree%20planting%20day%202026/Tree%20Planting.png" alt="Tree planting activity" loading="lazy"><figcaption>Tree planting</figcaption></figure>
-<figure><img src="assets/images/gallery/Tree%20planting%20day%202026/farm%20day.png" alt="Farm day during the 2026 tree planting event" loading="lazy"><figcaption>Farm day</figcaption></figure>
-<figure><img src="assets/images/gallery/Tree%20planting%20day%202026/farm%20day.png" alt="Farm day during the 2026 tree planting event" loading="lazy"><figcaption>Farm day</figcaption></figure>
-</div>
-<button class="album-toggle" type="button" aria-expanded="false">View more</button>
-</article>
-<article class="album-card">
-<h3>Community Training</h3>
-<figure class="album-cover"><img src="assets/images/gallery/Community%20Training/image%201.png" alt="Community members taking part in training" loading="lazy"><figcaption>Community Training</figcaption></figure>
-<div class="album-photos" hidden>
-<figure><img src="assets/images/gallery/Community%20Training/image%201.png" alt="Community training photo 1" loading="lazy"><figcaption>Community training</figcaption></figure>
-<figure><img src="assets/images/gallery/Community%20Training/image%202.png" alt="Community training photo 2" loading="lazy"><figcaption>Community training</figcaption></figure>
-</div>
-<button class="album-toggle" type="button" aria-expanded="false">View more</button>
-</article>
-<article class="album-card">
-<h3>School Support Drive</h3>
-<figure class="album-cover"><img src="assets/images/gallery/School%20Support%20Drive/donation.png" alt="School support donation" loading="lazy"><figcaption>School Support Drive</figcaption></figure>
-<div class="album-photos" hidden>
-<figure><img src="assets/images/gallery/School%20Support%20Drive/donation.png" alt="Donation for the school support drive" loading="lazy"><figcaption>School support donation</figcaption></figure>
-</div>
-<button class="album-toggle" type="button" aria-expanded="false">View more</button>
-</article>
-</div>
-<h2 class="gallery-highlights-title">More Field Highlights</h2>
-<div class="gal">
-<figure class="ph-g0"><img src="assets/images/gallery/gallery-01-community-training.jpg" alt="Community training workshop" loading="lazy"><figcaption>Community Training Workshop</figcaption></figure>
-<figure class="ph-g1"><img src="assets/images/gallery/gallery-02-tree-planting-day.jpg" alt="Tree planting initiative" loading="lazy"><figcaption>Community Tree Planting Drive</figcaption></figure>
-<figure class="ph-g2"><img src="assets/images/gallery/gallery-03-solar-installation.jpg" alt="Solar installation project" loading="lazy"><figcaption>Solar Energy Installation</figcaption></figure>
-<figure class="ph-g3"><img src="assets/images/gallery/gallery-04-school-supplies-drive.jpg" alt="School supplies distribution" loading="lazy"><figcaption>School Supplies Drive</figcaption></figure>
-<figure class="ph-g0"><img src="assets/images/gallery/gallery-05-farmer-cooperative.jpg" alt="Farmer cooperative training" loading="lazy"><figcaption>Organic Farmer Cooperative</figcaption></figure>
-<figure class="ph-g1"><img src="assets/images/gallery/gallery-06-clean-up-drive.jpg" alt="Environmental clean-up drive" loading="lazy"><figcaption>Environmental Clean-up Campaign</figcaption></figure>
-<figure class="ph-g2"><img src="assets/images/gallery/gallery-07-sanitary-towel-distribution.jpg" alt="Clean water and sanitation drive" loading="lazy"><figcaption>Clean Water & Hygiene Distribution</figcaption></figure>
-<figure class="ph-g3"><img src="assets/images/gallery/gallery-08-baraza-meeting.jpg" alt="Community governance baraza" loading="lazy"><figcaption>Governance & Civic Baraza</figcaption></figure>
-<figure class="ph-g0"><img src="assets/images/gallery/gallery-09-rainwater-harvesting.jpg" alt="Rainwater harvesting system" loading="lazy"><figcaption>Rainwater Harvesting Project</figcaption></figure>
-<figure class="ph-g1"><img src="assets/images/gallery/gallery-10-advocacy-governance.jpg" alt="Advocacy and Good Governance forum" loading="lazy"><figcaption>Advocacy & Good Governance Forum</figcaption></figure>
-</div></div></section>
-<section class="sec alt"><div class="wrap"><h2>Video Highlights</h2><p class="sub">Watch community members driving sustainable change and advocacy in Kenya.</p>
-<div class="video"><video controls playsinline preload="metadata" poster="assets/images/home/tree-planting-poster.jpg"><source src="assets/videos/hero.mp4" type="video/mp4"><source src="assets/videos/hero.webm" type="video/webm">Your browser does not support the video tag.</video>
-<p style="margin-top:14px;font-weight:600;color:var(--g)">Community Empowerment, Tree Planting & Governance Forum</p></div></div></section></main>
+</div></section></main>
 <footer class="ftr"><div class="wrap fgrid">
 <div><img class="flogo" src="assets/images/eagle-ecovision-logo.png" alt="Eagle Ecovision CBO"><p>Dedicated to promoting environmental conservation, sustainable development, and community empowerment across Kenya and East Africa.</p></div>
 <div><h4>Quick Links</h4><a href="about.html">About Us</a><a href="programs.html">Programs</a><a href="impact.html">Our Impact</a><a href="blog.html">News &amp; Updates</a></div>
