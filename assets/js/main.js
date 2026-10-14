@@ -75,7 +75,7 @@
     }
   });
 
-  document.querySelectorAll('.card, .prog, .ev, .logo, .gal figure, .box, .tiles a, .story-txt, .story-img, .post').forEach(function(el, idx) {
+  document.querySelectorAll('.card, .prog, .ev, .logo, .gal figure, .album-card figure, .box, .tiles a, .story-txt, .story-img, .post').forEach(function(el, idx) {
     if (observer) {
       el.classList.add('rv');
       el.style.transitionDelay = (idx % 4 * 0.08) + 's';
@@ -84,7 +84,7 @@
   });
 
   // Lightbox Modal for Gallery Images
-  var galleryFigures = document.querySelectorAll('.gal figure');
+  var galleryFigures = document.querySelectorAll('.gal figure, .album-card figure');
   if (galleryFigures.length > 0) {
     var modal = document.createElement('div');
     modal.className = 'lightbox-modal';
@@ -119,6 +119,18 @@
       if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
     });
   }
+
+  document.querySelectorAll('.album-toggle').forEach(function(button) {
+    button.addEventListener('click', function() {
+      var album = button.closest('.album-card');
+      var photos = album.querySelector('.album-photos');
+      var isExpanded = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', !isExpanded);
+      button.textContent = isExpanded ? 'View more' : 'Show less';
+      album.classList.toggle('expanded', !isExpanded);
+      photos.hidden = isExpanded;
+    });
+  });
 
   // Back to Top Button
   var backToTopBtn = document.createElement('button');
